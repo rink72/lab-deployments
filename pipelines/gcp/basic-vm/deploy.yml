@@ -13,9 +13,11 @@ resources:
 
 
 steps:
-- pwsh: Write-Host Hello
-  displayName: Say hello
-  name: firstStep
+  - checkout: self
+  - checkout: infrastructure
+  - pwsh: Write-Host Hello
+    displayName: Say hello
+    name: firstStep
 
 # stages:
 # - stage: Deploy
