@@ -1,0 +1,38 @@
+trigger: none
+
+variables:
+- template: release/variables.yml
+
+resources:
+  repositories:
+  - repository: infrastructure
+    type: github
+    name: rink72/lab-infrastructure
+    ref: refs/tags/0.2.0
+
+
+steps:
+- pwsh: Write-Host Hello
+  displayName: Say hello
+  name: firstStep
+
+# stages:
+# - stage: Deploy
+#   jobs:
+#   - template: release/deploy.yml
+#     parameters:
+#       jobPoolName: ${{ parameters.jobPoolName }}
+#       azdevEndpointName: ${{ variables.azdevEndpoint }}
+#       azureEndpointName: ${{ variables.azureEndpointProd }}
+#       environmentName: PROD
+#       poolName: ${{ variables.poolProd }}
+#       testPipelineName: ${{ variables.testPipeline }}
+#       agentsR1: [ AG1, AG2, AG3 ]
+#       agentsR2: [ AG4, AG5, AG6 ]
+#       dependsOnR1: [ Resources ]
+#       dependsOnR2: [ PROD_R1_AG1, PROD_R1_AG2, PROD_R1_AG3 ]
+#       pmVersion: ${{ variables.pmVersion }}
+#       resources: ${{ parameters.deployResources }}
+#       vmsR1: ${{ parameters.deployVMsR1 }}
+#       vmsR2: ${{ parameters.deployVMsR2 }}
+#       remove: false
