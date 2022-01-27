@@ -1,7 +1,7 @@
 trigger: none
 
-variables:
-- template: release/variables.yml
+# variables:
+# - template: release/variables.yml
 
 resources:
   repositories:
