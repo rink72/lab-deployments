@@ -22,12 +22,14 @@ resources:
       endpoint: rink72
 
 
-# steps:
-#   - checkout: self
-#   - checkout: infrastructure
-#   - pwsh: Write-Host Hello
-#     displayName: Say hello
-#     name: firstStep
+steps:
+  - checkout: self
+  - checkout: infrastructure
+  - checkout: templates
+  - pwsh: Write-Host Hello
+    displayName: Say hello
+    name: firstStep
+
 # stages:
 #   - stage: Deploy
 #     displayName: Infrastructure deploy
