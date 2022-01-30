@@ -39,4 +39,4 @@ stages:
       parameters:
         cloudType: GCP
         service: labbox
-        gcpKeyData: ${{ variables.pipelineautomation-keyfile }} # Comes from gcp.labrink72.vars
+        gcpKeyData: ${{ variables.pipelineautomation }} # Comes from gcp.labrink72.vars
