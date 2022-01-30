@@ -7,6 +7,8 @@ trigger: none
 variables:
 # - template: release/variables.yml
   - group: gcp.labrink72.vars
+  - name: gcpKeyData
+    value: $[variables.pipelineautomationkeyfile]
 
 resources:
   repositories:
@@ -39,4 +41,4 @@ stages:
       parameters:
         cloudType: GCP
         service: labbox
-        gcpKeyData: ${{ variables.pipelineautomationkeyfile }} # Comes from gcp.labrink72.vars
+        gcpKeyData: $(gcpKeyData)
