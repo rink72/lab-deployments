@@ -14,7 +14,7 @@ variables:
 
 parameters:
   - name: apply
-    displayName: Apply configuration
+    displayName: Deploy infrastructure
     type: boolean
     default: false
 
