@@ -19,7 +19,8 @@ resources:
     - repository: infrastructure
       type: github
       name: rink72/lab-infrastructure
-      ref: refs/tags/0.2.0
+      #ref: refs/tags/0.2.0
+      ref: refs/heads/convert-to-static-environment
       endpoint: rink72
 
     - repository: templates
