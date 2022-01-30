@@ -8,7 +8,11 @@ pool:
   vmImage: windows-latest
 
 # variables:
+variables:
 # - template: release/variables.yml
+  - group: gcp.labrink72.vars
+  - name: gcpKeyData
+    value: $[variables.pipelineautomationkeyfile]
 
 resources:
   repositories:
@@ -21,31 +25,24 @@ resources:
     - repository: templates
       type: github
       name: rink72/lab-templates
-      #ref: refs/tags/0.1.0
+      ref: refs/heads/first-version
       endpoint: rink72
 
 
 # steps:
 #   - checkout: self
 #   - checkout: infrastructure
+#   - checkout: templates
 #   - pwsh: Write-Host Hello
 #     displayName: Say hello
 #     name: firstStep
-# stages:
-#   - stage: Deploy
-#     displayName: Infrastructure deploy
-#     jobs:
-#     - template: ../../_templates/jobs/infrastructure-deploy.yml
-#       parameters:
-#         cloudType: GCP
-#         service: labbox
 
-#         environmentName: DINT
-#         endpointName: ${{ variables.endpointDev }}
-#         releaseStrategy: ${{ parameters.releaseStrategy }}
-#         variables:
-#           appServiceConfigPath: ${{ variables.appServiceConfigPath }}
-#           appServiceArtifactPath: ${{ variables.appServiceArtifactPath }}
-#           autoTestsConfigPath: ${{ variables.autoTestsConfigPath }}
-#           autoTestsArtifactPath: ${{ variables.autoTestsArtifactPath }}
-#           pmVersion: ${{ variables.pmVersion }}
+stages:
+  - stage: Deploy
+    displayName: Infrastructure deploy
+    jobs:
+    - template: templates/jobs/infrastructure-deploy.yml@templates
+      parameters:
+        cloudType: GCP
+        service: labbox
+        gcpKeyData: $(gcpKeyData)
