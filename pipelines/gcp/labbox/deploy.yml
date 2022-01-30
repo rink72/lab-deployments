@@ -19,7 +19,7 @@ resources:
     - repository: templates
       type: github
       name: rink72/lab-templates
-      ref: refs/first-version
+      ref: refs/heads/first-version
       endpoint: rink72
 
 
