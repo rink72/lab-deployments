@@ -4,8 +4,9 @@ name: gcp.labbox-deploy
 
 trigger: none
 
-# variables:
+variables:
 # - template: release/variables.yml
+  - group: gcp.labrink72.vars
 
 resources:
   repositories:
@@ -22,29 +23,20 @@ resources:
       endpoint: rink72
 
 
-steps:
-  - checkout: self
-  - checkout: infrastructure
-  - checkout: templates
-  - pwsh: Write-Host Hello
-    displayName: Say hello
-    name: firstStep
+# steps:
+#   - checkout: self
+#   - checkout: infrastructure
+#   - checkout: templates
+#   - pwsh: Write-Host Hello
+#     displayName: Say hello
+#     name: firstStep
 
-# stages:
-#   - stage: Deploy
-#     displayName: Infrastructure deploy
-#     jobs:
-#     - template: ../../_templates/jobs/infrastructure-deploy.yml
-#       parameters:
-#         cloudType: GCP
-#         service: labbox
-
-#         environmentName: DINT
-#         endpointName: ${{ variables.endpointDev }}
-#         releaseStrategy: ${{ parameters.releaseStrategy }}
-#         variables:
-#           appServiceConfigPath: ${{ variables.appServiceConfigPath }}
-#           appServiceArtifactPath: ${{ variables.appServiceArtifactPath }}
-#           autoTestsConfigPath: ${{ variables.autoTestsConfigPath }}
-#           autoTestsArtifactPath: ${{ variables.autoTestsArtifactPath }}
-#           pmVersion: ${{ variables.pmVersion }}
+stages:
+  - stage: Deploy
+    displayName: Infrastructure deploy
+    jobs:
+    - template: templates/jobs/infrastructure-deploy.yml@templates
+      parameters:
+        cloudType: GCP
+        service: labbox
+        gcpKeyData: ${{ variables.pipelineautomation-keyfile }} # Comes from gcp.labrink72.vars
