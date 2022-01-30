@@ -16,7 +16,7 @@ parameters:
   - name: apply
     displayName: Apply configuration
     type: boolean
-    defaultValue: false
+    default: false
 
 resources:
   repositories:
