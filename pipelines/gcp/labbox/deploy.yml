@@ -7,12 +7,16 @@ trigger: none
 pool:
   vmImage: windows-latest
 
-# variables:
 variables:
-# - template: release/variables.yml
   - group: gcp.labrink72.vars
   - name: gcpKeyData
     value: $[variables.pipelineautomationkeyfile]
+
+parameters:
+  - name: apply
+    displayName: Apply configuration
+    type: boolean
+    defaultValue: false
 
 resources:
   repositories:
@@ -29,15 +33,6 @@ resources:
       ref: refs/heads/first-version
       endpoint: rink72
 
-
-# steps:
-#   - checkout: self
-#   - checkout: infrastructure
-#   - checkout: templates
-#   - pwsh: Write-Host Hello
-#     displayName: Say hello
-#     name: firstStep
-
 stages:
   - stage: Deploy
     displayName: Infrastructure deploy
@@ -47,3 +42,4 @@ stages:
         cloudType: GCP
         service: labbox
         gcpKeyData: $(gcpKeyData)
+        apply: ${{ parameters.apply }}
