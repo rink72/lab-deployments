@@ -4,6 +4,9 @@ name: gcp.labbox-deploy
 
 trigger: none
 
+pool:
+  vmImage: windows-latest
+
 # variables:
 # - template: release/variables.yml
 
