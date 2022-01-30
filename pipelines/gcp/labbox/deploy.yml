@@ -5,7 +5,7 @@ name: gcp.labbox-deploy
 trigger: none
 
 pool:
-  vmImage: windows-latest
+  vmImage: windows-2022
 
 variables:
   - group: gcp.labrink72.vars
