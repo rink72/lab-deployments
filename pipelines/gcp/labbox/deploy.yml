@@ -23,7 +23,7 @@ resources:
     - repository: infrastructure
       type: github
       name: rink72/lab-infrastructure
-      ref: refs/tags/0.2.0
+      ref: refs/tags/0.3.0
       endpoint: rink72
     - repository: templates
       type: github
