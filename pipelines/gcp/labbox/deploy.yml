@@ -25,7 +25,6 @@ resources:
       name: rink72/lab-infrastructure
       ref: refs/tags/0.2.0
       endpoint: rink72
-
     - repository: templates
       type: github
       name: rink72/lab-templates
