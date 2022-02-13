@@ -3,6 +3,7 @@
 name: gcp.labbox-deploy
 
 trigger: none
+pr: none
 
 pool:
   vmImage: ubuntu-20.04
@@ -23,12 +24,12 @@ resources:
     - repository: infrastructure
       type: github
       name: rink72/lab-infrastructure
-      ref: refs/tags/0.5.0
+      ref: refs/tags/0.6.0
       endpoint: rink72
     - repository: templates
       type: github
       name: rink72/lab-templates
-      ref: refs/tags/0.2.0
+      ref: refs/tags/0.5.0
       endpoint: rink72
 
 stages:
