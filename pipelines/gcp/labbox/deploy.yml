@@ -3,6 +3,7 @@
 name: gcp.labbox-deploy
 
 trigger: none
+pr: none
 
 pool:
   vmImage: ubuntu-20.04
