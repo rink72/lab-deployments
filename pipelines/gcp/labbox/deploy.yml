@@ -5,7 +5,7 @@ name: gcp.labbox-deploy
 trigger: none
 
 pool:
-  vmImage: windows-2019
+  vmImage: ubuntu-20.04
 
 variables:
   - group: gcp.labrink72.vars
@@ -23,7 +23,7 @@ resources:
     - repository: infrastructure
       type: github
       name: rink72/lab-infrastructure
-      ref: refs/tags/0.3.0
+      ref: refs/tags/0.5.0
       endpoint: rink72
     - repository: templates
       type: github
