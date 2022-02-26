@@ -1,0 +1,5 @@
+variables:
+  infrastructureArtifactSourcePath: lab-deployments/deployments/gcp/labbox/infrastructure
+  infrastructureArtifactName: infrastructure
+  terragruntArtifactSourcePath: lab-infrastructure
+  terragruntArtifactName: terragrunt

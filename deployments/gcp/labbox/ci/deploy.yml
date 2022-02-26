@@ -1,5 +1,4 @@
 ---
-
 name: gcp.labbox-deploy
 
 trigger: none
@@ -21,7 +20,7 @@ parameters:
 
 resources:
   repositories:
-    - repository: infrastructure
+    - repository: terragrunt
       type: github
       name: rink72/lab-infrastructure
       ref: refs/tags/0.6.0
@@ -33,12 +32,18 @@ resources:
       endpoint: rink72
 
 stages:
-  - stage: Deploy
-    displayName: Infrastructure deploy
+  - stage: Build
     jobs:
-    - template: templates/jobs/infrastructure-deploy.yml@templates
-      parameters:
-        cloudType: GCP
-        service: labbox
-        gcpKeyData: $(gcpKeyData)
-        apply: ${{ parameters.apply }}
+      - template: templates/build.yml
+        parameters:
+          publish: true
+
+  # - stage: Deploy
+  #   displayName: Infrastructure deploy
+  #   jobs:
+  #     - template: templates/jobs/infrastructure-deploy.yml@templates
+  #       parameters:
+  #         cloudType: GCP
+  #         service: labbox
+  #         gcpKeyData: $(gcpKeyData)
+  #         apply: ${{ parameters.apply }}
