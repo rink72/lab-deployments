@@ -45,6 +45,7 @@ stages:
     jobs:
       - template: templates/jobs/infrastructure-deploy.yml@templates
         parameters:
+          configPath: ${{ variables.terragruntConfigPath }}
           cloudType: GCP
           service: labbox
           gcpKeyData: $(gcpKeyData)
