@@ -39,12 +39,12 @@ stages:
         parameters:
           publish: true
 
-    # - stage: Deploy
-    #   displayName: Infrastructure deploy
-    #   jobs:
-    #     - template: templates/jobs/infrastructure-deploy.yml@templates
-    #       parameters:
-    #         cloudType: GCP
-    #         service: labbox
-    #         gcpKeyData: $(gcpKeyData)
-    #         apply: ${{ parameters.apply }}
+  - stage: Deploy
+    displayName: Infrastructure deploy
+    jobs:
+      - template: templates/jobs/infrastructure-deploy.yml@templates
+        parameters:
+          cloudType: GCP
+          service: labbox
+          gcpKeyData: $(gcpKeyData)
+          apply: ${{ parameters.apply }}
