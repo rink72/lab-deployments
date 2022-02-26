@@ -24,7 +24,8 @@ resources:
     - repository: terragrunt
       type: github
       name: rink72/lab-infrastructure
-      ref: refs/tags/0.6.0
+      #ref: refs/tags/0.6.0
+      ref: working/LAB-1
       endpoint: rink72
     - repository: templates
       type: github
