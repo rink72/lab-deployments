@@ -10,6 +10,7 @@ jobs:
     steps:
       - checkout: self
       - checkout: terragrunt
+      - checkout: ansible
       - ${{ if parameters.publish }}:
           - publish: ${{ variables.infrastructureArtifactSourcePath }}
             artifact: ${{ variables.infrastructureArtifactName }}
