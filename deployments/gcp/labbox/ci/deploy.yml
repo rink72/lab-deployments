@@ -31,6 +31,12 @@ resources:
       #ref: refs/tags/0.6.0
       ref: working/LAB-1
       endpoint: rink72
+    - repository: ansible
+      type: github
+      name: rink72/lab-ansible
+      #ref: refs/tags/0.6.0
+      ref: working/LAB-2
+      endpoint: rink72
     - repository: templates
       type: github
       name: rink72/lab-templates

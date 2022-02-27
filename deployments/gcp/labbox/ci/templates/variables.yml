@@ -4,3 +4,5 @@ variables:
   terragruntConfigPath: infrastructure/terragrunt.hcl
   terragruntArtifactSourcePath: lab-infrastructure
   terragruntArtifactName: terragrunt
+  ansibleArtifactSourcePath: ansible
+  ansibleArtifactName: ansible
