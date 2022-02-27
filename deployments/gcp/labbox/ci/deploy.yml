@@ -14,8 +14,12 @@ variables:
   - template: templates/variables.yml
 
 parameters:
-  - name: apply
+  - name: deploy
     displayName: Deploy infrastructure
+    type: boolean
+    default: false
+  - name: configure
+    displayName: Configure infrastructure
     type: boolean
     default: false
 
@@ -50,4 +54,5 @@ stages:
           cloudType: GCP
           service: labbox
           gcpKeyData: $(gcpKeyData)
-          apply: ${{ parameters.apply }}
+          deploy: ${{ parameters.deploy }}
+          configure: ${{ parameters.configure }}
