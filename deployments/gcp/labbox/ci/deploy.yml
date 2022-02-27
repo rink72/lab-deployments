@@ -45,8 +45,8 @@ stages:
         parameters:
           publish: true
 
-  - stage: Deploy
-    displayName: Infrastructure deploy
+  - stage: LAB
+    displayName: LAB
     jobs:
       - template: templates/jobs/infrastructure-deploy.yml@templates
         parameters:
