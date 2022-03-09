@@ -1,0 +1,23 @@
+---
+- name: Configure lab box
+  hosts: labbox
+  gather_facts: no
+  become: yes
+
+  tasks:
+  - name: Wait for server to be available
+    wait_for_connection:
+      timeout: 600
+
+  - name: Update apt cache
+    apt:
+      update_cache: yes
+
+  - name: Update all packages to their latest version
+    apt:
+      name: "*"
+      state: latest
+
+  - name: Upgrade the OS (apt-get dist-upgrade)
+    apt:
+      upgrade: dist

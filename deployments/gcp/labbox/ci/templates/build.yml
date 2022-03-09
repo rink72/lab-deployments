@@ -1,0 +1,23 @@
+parameters:
+  publish: false
+
+jobs:
+  - job: Build
+    workspace:
+      clean: all
+    variables:
+      - template: variables.yml
+    steps:
+      - checkout: self
+      - checkout: terragrunt
+      - checkout: ansible
+      - ${{ if parameters.publish }}:
+          - publish: ${{ variables.infrastructureArtifactSourcePath }}
+            artifact: ${{ variables.infrastructureArtifactName }}
+            displayName: Publish infrastructure artifact
+          - publish: ${{ variables.terragruntArtifactSourcePath }}
+            artifact: ${{ variables.terragruntArtifactName }}
+            displayName: Publish terragrunt artifact
+          - publish: ${{ variables.ansibleArtifactSourcePath }}
+            artifact: ${{ variables.ansibleArtifactName }}
+            displayName: Publish ansible artifact
