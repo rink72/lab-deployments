@@ -1,8 +1,9 @@
 variables:
-  infrastructureArtifactSourcePath: lab-deployments/deployments/gcp/labbox/infrastructure
+  infrastructureArtifactSourcePath: lab-deployments/deployments/gcp/labbox
   infrastructureArtifactName: infrastructure
-  terragruntConfigPath: infrastructure/terragrunt.hcl
+  terragruntConfigPath: infrastructure/terragrunt/terragrunt.hcl
   terragruntArtifactSourcePath: lab-infrastructure
   terragruntArtifactName: terragrunt
   ansibleArtifactSourcePath: lab-ansible
   ansibleArtifactName: ansible
+  ansiblePlaybookPath: infrastructure/ansible/configure.yml

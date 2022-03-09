@@ -62,3 +62,4 @@ stages:
           gcpKeyData: $(gcpKeyData)
           deploy: ${{ parameters.deploy }}
           configure: ${{ parameters.configure }}
+          ansiblePlaybook: ${{ variables.ansiblePlaybookPath }}
