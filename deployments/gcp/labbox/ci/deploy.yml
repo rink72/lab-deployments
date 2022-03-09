@@ -39,8 +39,7 @@ resources:
     - repository: templates
       type: github
       name: rink72/lab-templates
-      #ref: refs/tags/0.5.0
-      ref: working/LAB-1
+      ref: refs/tags/0.6.0
       endpoint: rink72
 
 stages:
